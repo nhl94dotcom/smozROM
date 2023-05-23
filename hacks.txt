@@ -1,0 +1,13 @@
+weight bug fix
+    - needs to be calibrated to ROM's average weight
+assist bug fix
+weight base mod
+    - calibrated for the year (2000+ 144, 1999- 140)
+0-F ratings scale mod
+accurate edit lines ratings fix
+plus-minus
+3 stars
+ROM ID
+
+NOSE files
+

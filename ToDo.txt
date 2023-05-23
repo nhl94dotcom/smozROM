@@ -1,0 +1,21 @@
+DONE 2 more hacks:
+    DONE no player bonuses on-ice or in edit lines(etc).  good for equal compeition leagues.
+    DONE don't show bonuses in edit lines(etc), but keep them on-ice.  good for any league.
+OMIT overalls for normal rom edit:
+    -1 ofa
+    +2 shp
+    -1 chk
+    -1 sth
+    +1 pas
+DONE do you like the 0-15 rating formula? 
+    DONE change to   2	4	5	3	3	4	2	0	3	3	1	0	3	0
+
+DONE NOSE update.html
+    DONE how to install the new NOSE inis
+    DONE do they include the 30-team NHLPA93 inis? they do.
+DONE Player Rating Guide.html
+    OMIT correct weight distribution
+    DONE correct checking distribution and how the average should be around 3
+    OMIT distributions of the other attributes
+    
+    

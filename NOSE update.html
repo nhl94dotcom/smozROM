@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>NOSE Update Instructions</title>
+</head>
+<body>
+<div
+ style="border: 1px solid ; margin: auto; padding: 0.5em; width: 800px;">
+<h1 style="text-align: center;">NOSE Update<br>
+</h1>
+The 0-15 ratings hack and the base weight for different eras hack both
+require a couple NOSE files to be updated so it can properly display
+the new ratings and weights.<br>
+This update also includes the 30-team NHLPA '93 update.<br>
+<br>
+<div style="text-align: center;"><img
+ style="width: 551px; height: 451px;" src="images/0-15ratings.PNG"
+ alt="Player ratings go from 0-F (F=15)"><br>
+Player ratings go from 0-F (F=15)<br>
+</div>
+<h2>How to Install the Update</h2>
+<img style="width: 506px; height: 584px;" src="images/files.PNG"
+ alt="Overwrite the two files" align="right">
+<ol>
+  <li>From the '<span style="font-weight: bold;">smozROM</span>'
+program directory, go into the '<span style="font-weight: bold;">NOSE
+Update</span>' directory.<br>
+  </li>
+  <li>Copy the two files, '<span style="font-weight: bold;">hextext.ini</span>'
+and
+'<span style="font-weight: bold;">roms.ini</span>'</li>
+  <li>Paste these files into the '<span style="font-weight: bold;">ini</span>'
+directory
+of
+
+
+
+
+    <span style="font-weight: bold;">NOSE</span>, overwriting
+the old ones.</li>
+  <li>If NOSE was open, you need to close it and re-run it for the
+changes to take effect.</li>
+</ol>
+That's it!<br>
+<br>
+<h2>Re-Rating Players</h2>
+Note that when you upgrade a ROM to 0-15 ratings, the players will
+still be rated 0-6, so you'll have to re-rate them in NOSE.<br>
+<br>
+I map them like so:<br>
+<br>
+0 =&gt; 0<br>
+1 =&gt; 3 (instead of 2.5)<br>
+2 =&gt; 5<br>
+3 =&gt; 8 (instead of 7.5)<br>
+4 =&gt; 10<br>
+5 =&gt; 12 (instead of 12.5)<br>
+6 =&gt; 15<br>
+<br>
+Also, check out the player weights in NOSE if you made a retro or
+modern ROM.<br>
+<br>
+<h2>Crazy Overall Rating</h2>
+There is one 'small' issue, though:&nbsp; I can not update the Overall
+rating formula in NOSE, so players end up with really high Overall
+ratings.&nbsp; For example, in the image above, Brett Hull is rated
+203.&nbsp; In the ROM, the rating will be correct, though.&nbsp; <br>
+<br>
+To translate between NOSE ratings and ROM ratings, <span
+ style="font-weight: bold;">divide by 2.5</span>.&nbsp; <br>
+Brett Hull: 203/2.5 = 81.2.<br>
+Mario Lemieux, when translated to 0-15 ratings, is rated 250 in NOSE.
+250/2.5 = 100.<br>
+<br>
+Equivalent ratings:<br>
+(0-15 =&gt; 0-6)<br>
+250 =&gt; 100<br>
+225 =&gt; 90<br>
+200 =&gt; 80<br>
+175 =&gt; 70<br>
+150 =&gt; 60<br>
+125 =&gt; 50<br>
+100 =&gt; 45*<br>
+&nbsp; 75 =&gt; 40*<br>
+&nbsp; 50 =&gt; 35*<br>
+25** =&gt; 25*<br>
+<br>
+* In the ROM, ratings under 50 are on a different scale, one that
+decreases half as fast as normal.<br>
+** In NOSE, ratings under 50 are also on the different scale!<br>
+</div>
+<br>
+<br>
+</body>
+</html>
