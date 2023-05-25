@@ -1,9 +1,9 @@
 
-                             smozROM Hack Applicator
-                                      v1.0
+                            smozROM Hack Applicator
+                                    v1.0.1
                           by Michael Capewell / smozoma
-                http://forum.nhl94.com/index.php?showtopic=12181
-               http://www.michaelcapewell.com/programming/eare.htm
+               http://forum.nhl94.com/index.php?showtopic=12181
+              http://www.michaelcapewell.com/programming/eare.htm
 
 -------------------------------------------------------------------------------
 Usage:
@@ -30,6 +30,10 @@ Features:
  -  Improved Three Stars rating formula
  -  Edit Lines ratings consistency fixes
  -  Checksum removal
+
+v1.0.1 (Oct 15, 2018)
+Changes: 
+ - Updated smozROM.py to work on Linux & Mac
 
 -------------------------------------------------------------------------------
 License:
