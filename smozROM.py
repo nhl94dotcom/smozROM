@@ -29,6 +29,8 @@ the EARE editor, anyway!)
 #-----------------------------
 
 from hexutil import *
+import os
+import sys
 
 DEBUG = False
 
@@ -36,7 +38,37 @@ def debug(str):
     if DEBUG: print(str)
 
 def printHeader():
-    print("\n  SmozROM Hack Applier v1.0 - smozoma 2010-08\n")
+    print("\n  SmozROM Hack Applier v1.0.1 - smozoma 2018-10\n")
+
+def clearScreen(): 
+    if os.name == 'nt':
+        os.system('CLS')
+    else:
+        os.system('clear')
+
+def wait_key():
+    ''' Wait for a key press on the console and return it. '''
+    result = None
+    if os.name == 'nt':
+        import msvcrt
+        result = msvcrt.getch()
+    else:
+        import termios
+        fd = sys.stdin.fileno()
+
+        oldterm = termios.tcgetattr(fd)
+        newattr = termios.tcgetattr(fd)
+        newattr[3] = newattr[3] & ~termios.ICANON & ~termios.ECHO
+        termios.tcsetattr(fd, termios.TCSANOW, newattr)
+
+        try:
+            result = sys.stdin.read(1)
+        except IOError:
+            pass
+        finally:
+            termios.tcsetattr(fd, termios.TCSAFLUSH, oldterm)
+
+    return result
 
 def isNhl94Rom(romByteArray):
     #these bytes should be at the start of the file
@@ -186,7 +218,6 @@ def getBaseWeight(romByteArray):
 if __name__ == '__main__':
 
     import sys
-    import msvcrt # msvcrt.getch() - get single character functionality
     import os # os.system('CLS')
     
     from hacks.WeightBugFix import WeightBugFix
@@ -202,7 +233,7 @@ if __name__ == '__main__':
         print("    To use this program, simply drag-and-drop a ROM onto the .EXE file.")
         print("    You will then be prompted for which hacks to apply and an output file name.")
         print("\n\n\n\n    PRESS ANY KEY TO CLOSE THIS WINDOW.", end='')
-        msvcrt.getch()
+        wait_key()
         
     else:
     
@@ -215,7 +246,7 @@ if __name__ == '__main__':
             printHeader()
             print("\n\n  This does not appear to be an NHL'94 ROM!"
             "\n\n  Press any key to close this window.")
-            msvcrt.getch()
+            wait_key()
             sys.exit(1)
 
         weightBugFix = WeightBugFix()
@@ -240,7 +271,7 @@ if __name__ == '__main__':
                     print("   - " + x)
             print ("\n  You will be asked some questions about the ROM you are creating.")
             print ("\n  Press any key to continue.")
-            msvcrt.getch()
+            wait_key()
             os.system('CLS')
 
         romOldBaseWeight = getBaseWeight(ROM)
@@ -299,7 +330,7 @@ if __name__ == '__main__':
             print(type(inst))    # the exception instance
             print(inst.args)     # arguments stored in .args
             print('\n\n  Press any key to close this window.')
-            msvcrt.getch()
+            wait_key()
             sys.exit(1)
         lowerYear = int(sorted(weightyears.keys())[0])
         upperYear = int(sorted(weightyears.keys())[-1])
@@ -325,7 +356,7 @@ if __name__ == '__main__':
             print("     The ROM will be set up to use a base weight of " + str(romNewBaseWeight) + ".")
             print("     The original NHL'94 game uses a base weight of 140.")
             print ("\n  Press any key to continue.")
-            msvcrt.getch()
+            wait_key()
         else:
             romNewBaseWeight = int(weightyears[romYear])
             print("\n     The current base weight in the ROM is " + str(romOldBaseWeight) + ".")
@@ -963,11 +994,11 @@ if __name__ == '__main__':
                         "     Most defensemen  should be rated 2-4 out of 6 (4-11 out of 15)." + "\n"
                         "     Very few players should be rated 5-6 out of 6 (12-15 out of 15)." + "\n")
                     print("  Press a key to continue" + "\n")
-                    msvcrt.getch()
+                    wait_key()
 
                 saveHex(ROM, sys.argv[1])
                 
         
         print("\n  Press any key to close this window.")
         
-        msvcrt.getch()
+        wait_key()
