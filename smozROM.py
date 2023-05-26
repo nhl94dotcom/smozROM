@@ -38,37 +38,7 @@ def debug(str):
     if DEBUG: print(str)
 
 def printHeader():
-    print("\n  SmozROM Hack Applier v1.0.1 - smozoma 2018-10\n")
-
-def clearScreen(): 
-    if os.name == 'nt':
-        os.system('CLS')
-    else:
-        os.system('clear')
-
-def wait_key():
-    ''' Wait for a key press on the console and return it. '''
-    result = None
-    if os.name == 'nt':
-        import msvcrt
-        result = msvcrt.getch()
-    else:
-        import termios
-        fd = sys.stdin.fileno()
-
-        oldterm = termios.tcgetattr(fd)
-        newattr = termios.tcgetattr(fd)
-        newattr[3] = newattr[3] & ~termios.ICANON & ~termios.ECHO
-        termios.tcsetattr(fd, termios.TCSANOW, newattr)
-
-        try:
-            result = sys.stdin.read(1)
-        except IOError:
-            pass
-        finally:
-            termios.tcsetattr(fd, termios.TCSAFLUSH, oldterm)
-
-    return result
+    print("\n  SmozROM Hack Applier v1.0.2 - smozoma 2023-05\n")
 
 def isNhl94Rom(romByteArray):
     #these bytes should be at the start of the file
@@ -979,8 +949,8 @@ if __name__ == '__main__':
 
                 if weightBugFix.toApply or ratingScaleOption == 15 or romNewBaseWeight != romOldBaseWeight:
                     print("\n  Before you save, please read this:" + "\n")
-                    print("     If you are using the 0-15 ratings or different year base weight, then you" + "\n"
-                        "     need to update NOSE.  See 'NOSE update.html' for more information." + "\n")
+                    print("     If you are using the 0-15 ratings or different year base weight with NOSE," + "\n"
+                        "     then you need to use NOSE version 1.2d or higher. See 'NOSE update.html'" + "\n")
                     print("     See 'Player Rating Guide.html' for information about player "+ "\n"
                         "     rating balances if you are going customize player ratings." + "\n")
                     print("     In particular, the Weight Bug Fix is calibrated to match the original " + "\n"
