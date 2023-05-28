@@ -40,6 +40,36 @@ def debug(str):
 def printHeader():
     print("\n  SmozROM Hack Applier v1.0.2 - smozoma 2023-05\n")
 
+def clearScreen(): 
+    if os.name == 'nt':
+        os.system('CLS')
+    else:
+        os.system('clear')
+
+def wait_key():
+    ''' Wait for a key press on the console and return it. '''
+    result = None
+    if os.name == 'nt':
+        import msvcrt
+        result = msvcrt.getch()
+    else:
+        import termios
+        fd = sys.stdin.fileno()
+
+        oldterm = termios.tcgetattr(fd)
+        newattr = termios.tcgetattr(fd)
+        newattr[3] = newattr[3] & ~termios.ICANON & ~termios.ECHO
+        termios.tcsetattr(fd, termios.TCSANOW, newattr)
+
+        try:
+            result = sys.stdin.read(1)
+        except IOError:
+            pass
+        finally:
+            termios.tcsetattr(fd, termios.TCSAFLUSH, oldterm)
+
+    return result
+
 def isNhl94Rom(romByteArray):
     #these bytes should be at the start of the file
     if  0 != findHex("00FF FFF6 0000 0200 0001 8BFC 0001 8BFC 0001 8C22 0001 8C4C", romByteArray):
